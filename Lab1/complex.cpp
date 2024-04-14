@@ -32,6 +32,10 @@ Complex &Complex::operator=(const Complex &obj){
 	return *this; 
 }
 
+void Complex::Print(){
+	std::cout << "Real section: " << real << " Imaginary section: " << imag << std::endl;
+}
+
 void Complex::Norm(){
 	norm=sqrt(real*real+imag*imag);
 	std::cout<<"The norm of the complex number is "<<norm<<"."<<std::endl;

@@ -4,14 +4,18 @@
 class Complex
 {
 	public:
-		Complex(double a, double b);
+		//Methods
+		Complex(); //Default Constructor
+		Complex(double a, double b); //Personalized Constructor
 		Complex(const Complex &obj);
                 Complex &operator=(const Complex &obj);
 		~Complex();
+		void Print();
 		void Norm();
 		void Conjugate();
+
 	private:
-		Complex();
+		//Variables
 		double real;
 		double imag;
 		double norm;

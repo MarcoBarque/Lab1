@@ -3,14 +3,24 @@
 #include "complex.hpp"
 
 int main(){
-	Complex complejo(4.5,7.9);
-	std::cout<<complejo.real<<"hola"<< complejo.imag<<std::endl;
-	Complex m;
-	std::cout<<m.real<<"hola"<< m.imag<<std::endl;
-	Complex a=complejo;
-	std::cout<<a.real<<"hola"<< a.imag<<std::endl;
-	a=m;
-	std::cout<<a.real<<"hola"<< a.imag<<std::endl;		
+	Complex a;
+	std::cout << "Default Constructor" << std::endl;
+	a.Print();
+
+	Complex b = Complex(4.5, 6.7);
+	std::cout << "Personalized Constructor" << std::endl;
+	b.Print();
+	
+	Complex c = a;
+	c.Print();
+
+	c = b;
+	c.Print();		
+
+	c.Norm();
+
+	c.Conjugate();
+	c.Print();
 
 	return 0;
 }
