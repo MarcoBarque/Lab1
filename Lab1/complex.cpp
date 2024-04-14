@@ -2,14 +2,17 @@
 #include "complex.hpp"
 #include <cmath>
 
+//Public
 Complex::Complex(){
         real=0.0;
         imag=0.0;
+	CalcNorm();
 }  
 
 Complex::Complex(double a,double b){
 	real=a;
 	imag=b;
+	CalcNorm();
 }
 
 Complex::~Complex(){
@@ -21,26 +24,51 @@ Complex::Complex(const Complex &obj){
 
 	real=obj.real;
 	imag=obj.imag;
+	norm=obj.norm;
 }
 
 Complex &Complex::operator=(const Complex &obj){
 	std::cout <<"Assignment operator invoked"<<std::endl;
 
 	real=obj.real;
-	 imag=obj.imag;
+	imag=obj.imag;
+	norm=obj.norm;
 	
 	return *this; 
 }
 
-void Complex::Print(){
-	std::cout << "Real section: " << real << " Imaginary section: " << imag << std::endl;
+void Complex::Disp(){
+	if (imag<0) {
+		std::cout << real << imag << "i" << std::endl;
+	} else {
+		std::cout << real << "+"  << imag << "i"  << std::endl;
+	}
 }
 
-void Complex::Norm(){
-	norm=sqrt(real*real+imag*imag);
-	std::cout<<"The norm of the complex number is "<<norm<<"."<<std::endl;
+double Complex::Norm(){
+	return norm;
 }
 
 void Complex::Conjugate(){
 	imag= -imag;
+}
+
+Complex Complex::operator+(const Complex &obj){
+	Complex temp = Complex(real+obj.real, imag+obj.imag);
+	return temp;
+}
+
+Complex Complex::operator-(const Complex &obj){
+        Complex temp = Complex(real-obj.real, imag-obj.imag);
+        return temp;
+}
+
+Complex Complex::operator*(const Complex &obj){
+        Complex temp = Complex(real*obj.real - imag*obj.imag, real*obj.imag + imag*obj.real);
+        return temp;
+}
+
+//Private
+void Complex::CalcNorm(){
+	norm=sqrt(real*real+imag*imag);
 }
