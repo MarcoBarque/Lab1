@@ -16,6 +16,7 @@ class Complex
 		Complex operator+(const Complex &obj); //Overrides the sum
 		Complex operator-(const Complex &obj); //Overrides the substraction
 		Complex operator*(const Complex &obj); //Overrides the multiplication
+		Complex operator/(const Complex &obj); //Overrides the division
 	private:
 		//Variables
 		double real; //Real component of the complex

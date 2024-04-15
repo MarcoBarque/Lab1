@@ -35,6 +35,9 @@ int main(){
         std::cout << "Multiplication(*) of complexes" << std::endl;
         f.Disp();
 
+	Complex g = b/c;
+	std::cout << "Division(/) of complexes" << std::endl;
+	g.Disp();
 
 	return 0;
 }

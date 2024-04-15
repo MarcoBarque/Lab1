@@ -1,6 +1,7 @@
 #include <iostream>
 #include "complex.hpp"
 #include <cmath>
+#include <iomanip>
 
 //Public
 Complex::Complex(){
@@ -39,7 +40,7 @@ Complex &Complex::operator=(const Complex &obj){
 
 void Complex::Disp(){
 	if (imag<0) {
-		std::cout << real << imag << "i" << std::endl;
+	std::cout << std::fixed << std::setprecision(3) <<real << imag << "i" << std::endl;
 	} else {
 		std::cout << real << "+"  << imag << "i"  << std::endl;
 	}
@@ -66,6 +67,11 @@ Complex Complex::operator-(const Complex &obj){
 Complex Complex::operator*(const Complex &obj){
         Complex temp = Complex(real*obj.real - imag*obj.imag, real*obj.imag + imag*obj.real);
         return temp;
+}
+
+Complex Complex::operator/(const Complex &obj){
+	Complex temp = Complex((real*obj.real+imag*obj.imag)/(obj.real*obj.real+obj.imag*obj.imag),(obj.real*imag-real*obj.imag)/(obj.real*obj.real+obj.imag*obj.imag));
+	return temp;
 }
 
 //Private
