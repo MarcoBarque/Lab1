@@ -40,7 +40,7 @@ Complex &Complex::operator=(const Complex &obj){
 
 void Complex::Disp(){
 	if (imag<0) {
-	std::cout << std::fixed << std::setprecision(3) <<real << imag << "i" << std::endl;
+	std::cout << std::fixed << std::setprecision(2) <<real << imag << "i" << std::endl;
 	} else {
 		std::cout << real << "+"  << imag << "i"  << std::endl;
 	}
