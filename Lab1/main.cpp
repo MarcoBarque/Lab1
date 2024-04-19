@@ -3,6 +3,8 @@
 #include "complex.hpp"
 #include <iomanip>
 
+//Maro Barquero C30970, Andres Chacon C32026
+
 int main(){
 	Complex a;
 	std::cout << "Default Constructor" << std::endl;

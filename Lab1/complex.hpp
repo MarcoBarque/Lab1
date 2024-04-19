@@ -1,6 +1,8 @@
 #ifndef COMPLEX_HPP
 #define COMPLEX_HPP
 
+//Maro Barquero C30970, Andres Chacon C32026
+
 class Complex
 {
 	public:

@@ -3,6 +3,8 @@
 #include <cmath>
 #include <iomanip>
 
+//Maro Barquero C30970, Andres Chacon C32026
+
 //Public
 Complex::Complex(){
         real=0.0;
