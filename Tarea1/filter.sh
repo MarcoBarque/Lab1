@@ -17,3 +17,4 @@ grep ^"J" usuarios.csv >> usuariosJ.csv
 sed -i 's/mastercard/Mastercard/g' usuarios.csv 
 
 exit 0
+#Marco Barquero (C30970), Andres Chacon (C32026)
