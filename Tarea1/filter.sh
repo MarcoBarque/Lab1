@@ -10,7 +10,7 @@ grep -e ^"James,J" -e ^"Paul,J" -e "James,S" -e "Paul,S"  usuarios.csv | grep "A
 
 #Impresión de la cantidad de usuarios con nombre que inicia con J y su lista
 echo -e "\n\nNumero de usuarios cuyo nombre empieza con J: $(grep ^"J" usuarios.csv | wc -l)"
-echo -e "Numero de usuarios cuyo nombre empieza con J: $(grep ^"J" usuarios.csv | wc -l)" > usuarios.csv
+echo -e "Numero de usuarios cuyo nombre empieza con J: $(grep ^"J" usuarios.csv | wc -l)" > usuariosJ.csv
 grep ^"J" usuarios.csv >> usuariosJ.csv
 
 #Cambio de instancias "mastercard" por "Mastercard"
