@@ -1,19 +1,18 @@
 #!/bin/bash
 
-TIME_c=4
-count_c=0
+times_c=4 #Valor maximo para el iterador
+count_c=0 #Contador desde 0
 
-while [ "$count_c" -le $TIME_c ]
+while [ "$count_c" -le $TIME_c ] #Realiza la iteracion de 0 a 4
 do
-	 if [ "$count_c" -eq 0 ]
+	 if [ "$count_c" -eq 0 ] #Chequea si es la primera iteracion
 	 then
-		 cp rand_"$count_c".txt rand_c.txt
+		 cp rand_"$count_c".dat rand_c.dat #Crea/sobreescribe el archivo
 	 else 
-		 cat rand_"$count_c".txt >> rand_c.txt
-	 
+		 cat rand_"$count_c".dat >> rand_c.dat #Anexa datos al archivo
 	 fi
 
-	 let "count_c += 1"
+	 let "count_c += 1" #Aumenta el contador en 1
 done
 
 exit 0
