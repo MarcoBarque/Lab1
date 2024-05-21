@@ -21,12 +21,12 @@ class Matrix
 
 		int get_rows();
 		int get_cols();
-		void Disp();
+		void print();
 
 	private:
 		//Atributes
 		int n_cols;
 		int n_rows;
-		std::vector<double>* data = new std::vector<double>;
+		std::vector<double>* data;
 };
 #endif
