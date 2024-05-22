@@ -90,7 +90,7 @@ Matrix Matrix::operator-(const Matrix &obj){
 
 Matrix Matrix::operator*(const Matrix &obj){
         if (n_cols != obj.n_rows){
-                std::cout << "Error: The number of columns of the firs matrix must be the as the number of rows of the second one. The matrix returned is the default matrix." << std::endl;
+                std::cout << "Error: The number of columns of the first matrix must be the as the number of rows of the second one. The matrix returned is the default matrix." << std::endl;
                 Matrix X;
                 return X;
         }
