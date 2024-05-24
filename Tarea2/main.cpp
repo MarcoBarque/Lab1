@@ -1,6 +1,8 @@
 #include <iostream>
 #include "matrix.hpp"
 
+//Marco Barquero (C30970), Andres Chacon (C32026)
+
 int main(){
 	//Defautl Matrix
 	std::cout << "Fist test: Default matrix." << std::endl;
