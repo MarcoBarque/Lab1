@@ -49,10 +49,10 @@ int main(){
   {
     #pragma omp for
     for (int y = 0; y < height; ++y) {
-      #pragma omp task
-      {
       for (int x = 0; x < width; ++x) {
-        // Mapeo de pixeles a número complejo
+	#pragma omp task
+	{
+	// Mapeo de pixeles a número complejo
         std::complex<double> c(minX + (maxX - minX) * x / width,
         minY + (maxY - minY) * y / height);
         // Calculo del número de iteraciones
@@ -65,7 +65,7 @@ int main(){
 	else {
           Cols[y * width + x] = '.'; // Fuera del conjunto de Mandelbrot
         }
-      }
+	}
       }
     }
  }
