@@ -40,43 +40,44 @@ int main(){
 
   // Rutina principal para generar e imprimir el conjunto
 
-  std::vector<std::string> Cols(height);
+  std::vector<char> Cols(height * width);
 
   double time_1 = seconds(); 
-  #pragma omp parallel 
+  
+  
+  #pragma omp parallel
   {
-  #pragma omp for
-  for(int y = 0; y < height; ++y){
-    char Line[width];
-	
-    for(int x = 0; x < width; ++x){
-      // Mapeo de pixeles a número complejo
-      std::complex<double> c( minX + (maxX - minX) * x / width,
-                              minY + (maxY - minY) * y / height );
+    #pragma omp for
+    for (int y = 0; y < height; ++y) {
+      #pragma omp task
+      {
+      for (int x = 0; x < width; ++x) {
+        // Mapeo de pixeles a número complejo
+        std::complex<double> c(minX + (maxX - minX) * x / width,
+        minY + (maxY - minY) * y / height);
+        // Calculo del número de iteraciones
+        int n = mandelbrot(c, max_iter);
 
-      // Cálculo del número de iteraciones
-      int n = mandelbrot(c, max_iter);
-
-      // Se imprime un caracter dependiendo del número de iteraciones
-      if(n == max_iter){
-	Line[x]='#'; // Dentro del conjunto de Mandelbrot
-      } 
-      else{
-       Line[x]='.'; // Fuera del conjunto de Mandelbrot
+	// Se imprime un caracter dependiendo del número de iteraciones
+	if (n == max_iter) {
+	  Cols[y * width + x] = '#'; // Dentro del conjunto de Mandelbrot
+        } 
+	else {
+          Cols[y * width + x] = '.'; // Fuera del conjunto de Mandelbrot
+        }
+      }
       }
     }
-    Cols[y]=Line; 
-  }
-  }
+ }
   double time_2 = seconds();
 
   for(int y = 0; y < height; ++y){
 	for(int x = 0; x<width; ++x){
-  		std::cout << Cols[y][x];
+  		std::cout << Cols[(y * width) + x];
   	}
 	std::cout << std::endl;
   }
 
-  std::cout << "Velocity: " << (0.04252)/(time_2 - time_1) << std::endl;
+  std::cout << "Velocity: " << 0.0736918/(time_2 - time_1) << std::endl;
   return 0;
   }
